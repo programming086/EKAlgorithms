@@ -15,7 +15,7 @@
 
  Write a random number generator which returns 0, 1, 2 or 3 given we have a generator which returns 0 or 1.
  */
-static inline int random0123UsingRandom01() {
+static inline int random0123UsingRandom01(void) {
     // This is our magic 0-1 generator.
     int (^random01)(void) = ^int(void) {
         return arc4random_uniform(2);
@@ -97,4 +97,3 @@ static inline uint32_t randomUsingRandom01(uint32_t upperBound) {
 
     return randomNumber % upperBound;
 }
-
