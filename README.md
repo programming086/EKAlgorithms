@@ -1,6 +1,7 @@
+[![Build Status](https://travis-ci.org/EvgenyKarkan/EKAlgorithms.svg)](https://travis-ci.org/EvgenyKarkan/EKAlgorithms)
+
 EKAlgorithms
 ============
-[![Build Status](https://travis-ci.org/EvgenyKarkan/EKAlgorithms.svg)](https://travis-ci.org/EvgenyKarkan/EKAlgorithms)
 
 EKAlgorithms is a set of computer exercises implemented in Objective-C. 
 Data structures, well known algorithms, CS curiosities, you name it!
@@ -61,6 +62,7 @@ Strings
 11. Longest common subsequence.
 12. Levenshtein distance.
 13. KMP (Knuth–Morris–Pratt).
+14. Boyer–Moore string search algorithm.
 
 Numeric Algorithms
 ------------------
@@ -144,6 +146,10 @@ Similar repositories
 * [SwiftStructures](https://github.com/waynewbishop/SwiftStructures)
 
 > Examples of commonly used data structures and algorithms in Swift. (Swift)
+
+* [swift-algorithm-club](https://github.com/hollance/swift-algorithm-club)
+
+> Algorithms and data structures in Swift, with explanations!
 
 Contributors
 ------------

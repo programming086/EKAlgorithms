@@ -105,7 +105,7 @@ int main(int argc, const char *argv[])
         //Binary search
         NSLog(@"Binary search result: %li", (long)[@[@6, @9, @12, @13, @14, @29, @42] indexOfObjectViaBinarySearch: @42]);
 
-#pragma mark - Search
+#pragma mark - Sorting
         //SORTING-----------------------------------------------------------------------------------
 
         //Bubble sort
@@ -176,6 +176,24 @@ int main(int argc, const char *argv[])
         
         // KMP
         NSLog(@"Index of KMP string match is --> %ld", [@"bacbababaabcbab" KMPindexOfSubstringWithPattern:@"bab"]);
+
+        // Boyer Moore
+        NSLog(@"Index of BM string match is --> %ld", [@"bacbababaabcbab" BMindexOfSubstringWithPattern:@"baab" index:0].location);
+
+        // Boyer Moore Match count.
+        size_t numberOfPatternMatches = 0;
+        NSRange range = {.location = 0, .length = 0};
+        NSString *searchString = @"bacbababaabcbabbaab";
+
+        while (range.location != NSNotFound) {
+            range = [searchString BMindexOfSubstringWithPattern:@"baab" index:0];
+            if (range.location != NSNotFound) {
+                searchString = [searchString substringWithRange:NSMakeRange(range.location+range.length, searchString.length - range.location - range.length)];
+                numberOfPatternMatches++;
+            }
+        }
+
+        NSLog(@"Number of matches using Boyers Moore Search is --> %ld", numberOfPatternMatches);
         
 #pragma mark - Numeric problems
         //NUMERIC PROBLEMS--------------------------------------------------------------------------
@@ -359,6 +377,8 @@ int main(int argc, const char *argv[])
         }
 
         [graph depthFirstSearch];
+        [graph depthFirstSearchRecursive: aV];
+        [graph clearVisitHistory];
 
         //BFS
         [graph breadthFirstSearch];
@@ -459,7 +479,7 @@ int main(int argc, const char *argv[])
 
         // AVL Tree stuff.
 
-        EKAVLTree *avlt = [[EKAVLTree alloc] initWithObject:@4 compareSelector:@selector(compare:)];
+        EKAVLTree *avlt = [[EKAVLTree alloc] initWithObject:@4];
         [avlt insertObject:@9];
         [avlt insertObject:@2];
         [avlt insertObject:@10];

@@ -1,6 +1,12 @@
-platform :osx, '10.9'
+platform :osx, '10.15'
 
-target :EKAlgorithmsSpecs, :exclusive => true do
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+project 'EKAlgorithmsApp'
+
+target 'EKAlgorithmsSpecs' do
+  inherit! :search_paths
   pod 'Kiwi'
 end
 
